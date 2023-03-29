@@ -259,11 +259,11 @@ def trainIters(encoder, decoder, epochs, print_every=1000, plot_every=1000, lear
     print_loss_total = 0  # Reset every print_every
     plot_loss_total = 0  # Reset every plot_every
 
-    encoder_optimizer = optim.Adam(encoder.parameters())
-    decoder_optimizer = optim.Adam(decoder.parameters())
+    encoder_optimizer = optim.SGD(encoder.parameters(), lr = learning_rate)
+    decoder_optimizer = optim.SGD(decoder.parameters(), lr = learning_rate)
 
-    encoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(encoder_optimizer, T_max=40)
-    decoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(decoder_optimizer, T_max=40)
+    encoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(encoder_optimizer, T_max=20)
+    decoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(decoder_optimizer, T_max=20)
 
     criterion = nn.NLLLoss()
 
@@ -401,7 +401,7 @@ hidden_size = 512
 encoder1 = EncoderRNN(input_lang.n_words, hidden_size).to(device)
 decoder1 = Decoder(hidden_size, output_lang.n_words).to(device)
 
-trainIters(encoder1, decoder1, 40, print_every=5000)
+trainIters(encoder1, decoder1, 20, print_every=5000)
 
 input,gt,predict,score = test(encoder1, decoder1, train_pairs)
 
