@@ -262,8 +262,8 @@ def trainIters(encoder, decoder, epochs, print_every=1000, plot_every=1000, lear
     encoder_optimizer = optim.Adam(encoder.parameters())
     decoder_optimizer = optim.Adam(decoder.parameters())
 
-    encoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(encoder_optimizer, T_max=50)
-    decoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(decoder_optimizer, T_max=50)
+    encoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(encoder_optimizer, T_max=40)
+    decoder_scheduler = optim.lr_scheduler.CosineAnnealingLR(decoder_optimizer, T_max=40)
 
     criterion = nn.NLLLoss()
 
