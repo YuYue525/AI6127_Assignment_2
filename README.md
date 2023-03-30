@@ -24,3 +24,8 @@ In the file `attention.py`, we add attention mechanism between the GRU encoder a
 python attention.py
 ```
 
+## task 5:
+In the file `transformer.py`, we use transformer encoder and GRU decoder.
+```
+python transformer.py
+```
