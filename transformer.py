@@ -159,8 +159,8 @@ class EncoderRNN(nn.Module):
         self.embedding = nn.Embedding(input_size, hidden_size)
         self.positional_encoder = PositionalEncoding(dim_model=hidden_size)
 
-        self.encoder_layer = nn.TransformerEncoderLayer(d_model=hidden_size, nhead=8)
-        self.transformer_encoder = nn.TransformerEncoder(self.encoder_layer, num_layers=6)
+        self.encoder_layer = nn.TransformerEncoderLayer(d_model=hidden_size, nhead=1)
+        self.transformer_encoder = nn.TransformerEncoder(self.encoder_layer, num_layers=1)
 
 
     def forward(self, input_tensor):
