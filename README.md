@@ -1,4 +1,4 @@
-# AI6127_Assignment_2
+# AI6127 Assignment 2
 
 ## task 1:
 In the file `add_rouge_2.py`, we add rouge 2 matrix based on the example code base and use GRU encoder and decoder.
